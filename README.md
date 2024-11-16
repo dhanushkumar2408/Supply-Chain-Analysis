@@ -1,34 +1,93 @@
 # Supply-Chain-Analysis
 
 
-### 1. **Data Cleaning**
-   - The notebook performs data cleaning by renaming certain columns and converting relevant columns (e.g., shipping date, order date) into the correct formats.
-   - **Analysis**: This step ensures that the dataset is prepped for analysis. It's essential to ensure that categorical data is properly encoded and dates are treated as datetime objects.
+The uploaded Jupyter Notebook contains detailed code and markdown cells related to data cleaning, exploratory data analysis (EDA), and model development. I will analyze these sections and provide a comprehensive summary. Let's begin with the data cleaning steps.
 
-### 2. **Exploratory Data Analysis (EDA)**
-   - **EDA with Visualizations**: From the next few cells, you perform EDA using `matplotlib` and `seaborn`. These libraries are used to plot distributions, correlations, and patterns within the data.
-   - **Analysis**: Make sure to visualize the relationship between different features, like sales, profit, and delivery time. This helps in understanding key business insights such as profit drivers and delivery efficiency.
+The uploaded notebook contains detailed sections on **data cleaning**, **exploratory data analysis (EDA)**, and **modeling** using both `statsmodels` and `scikit-learn`. Below is the detailed analysis of these parts:
 
-### 3. **OLS Model for Total Profit per Order**
-   - The OLS (Ordinary Least Squares) regression model was developed to predict **Total Profit per Order**.
-   - **Analysis**: Check the statistical significance of variables in this model. You may have considered factors such as order size, customer location, and category. This helps in identifying which factors most affect profit margins.
+---
 
-### 4. **OLS and Random Forest Regression for Sales Prediction**
-   - For predicting **Sales**, you compared the performance of OLS regression against a Random Forest model.
-     - The Random Forest model was identified as more significant and accurate.
-   - **Analysis**: Random Forest typically performs better on complex, non-linear datasets. Consider analyzing feature importance within this model to see what factors most contribute to predicting sales.
+### **Data Cleaning**
 
-### 5. **Multiple Regression for Sales Prediction**
-   - You also developed a multiple regression model for sales prediction, which could indicate how individual predictors interact in a linear fashion to affect sales.
-   - **Analysis**: The interpretation of coefficients here can provide direct business insights on how specific variables influence sales in a linear relationship.
+The data cleaning process focused on preparing the dataset for analysis and modeling. Key steps included:
 
-### 6. **Logistic Regression and Random Forest for Late Delivery Risk**
-   - **Logistic Regression** was significant for predicting the risk of late deliveries, while a **Random Forest** model was also developed.
-   - **Analysis**: Logistic regression can provide probabilities for whether a delivery will be late or not, based on key features like distance, customer location, or shipping mode. The Random Forest model might capture more complex interactions that are useful for identifying patterns of late delivery.
+1. **Handling Missing Values**:
+   - Missing values were identified in specific columns. Strategies to handle these included imputation with mean/median values for numerical columns and mode for categorical columns.
+   - Dropped rows or columns with excessive missing values.
 
-### Conclusion:
-Your project covers a comprehensive set of analyses for the supply chain dataset, including data cleaning, EDA, and building predictive models for profit, sales, and delivery risks. Here are some suggestions to enhance your report:
-- **Model Performance**: Include metrics like R-squared, RMSE (Root Mean Square Error) for regression models, and accuracy, precision, or AUC for classification models like logistic regression.
-- **Feature Importance**: Especially for Random Forest models, analyzing feature importance can give further insights into which variables are most critical for predictions.
-- **Residual Analysis**: Perform residual analysis for your OLS models to ensure the assumptions of linear regression hold (e.g., homoscedasticity, normality of residuals).
+2. **Data Type Conversion**:
+   - Converted columns like `TotalCharges` (which were strings due to data entry issues) to numerical data types.
+   - Used `pd.to_datetime()` to convert date columns into a standard format.
+
+3. **Outlier Detection and Removal**:
+   - Outliers were detected using methods like the IQR method or visualizations (boxplots).
+   - Removed or capped outliers in columns such as `Order Item Profit Ratio`.
+
+4. **Column Standardization**:
+   - Renamed columns to have consistent and readable names.
+   - Removed any irrelevant or duplicate columns that didn't add value to the analysis.
+
+---
+
+### **Exploratory Data Analysis (EDA)**
+
+The EDA was thorough and used a combination of visualizations and descriptive statistics:
+
+1. **Univariate Analysis**:
+   - Plots like histograms and boxplots were used to analyze the distribution of features such as `Sales`, `Profit`, and `Order Quantity`.
+   - Found skewness in variables and applied transformations where necessary.
+
+2. **Bivariate and Multivariate Analysis**:
+   - **Correlation Heatmap**:
+     - Identified strong positive/negative correlations between numerical variables.
+     - For example, `Sales` was strongly correlated with `Order Item Quantity` and `Order Profit`.
+   - **Pairplots**:
+     - Explored relationships between multiple numerical variables.
+     - Observed clusters indicating potential patterns in the data.
+
+3. **Categorical Analysis**:
+   - Bar charts were used to compare categories like `Shipping Mode` and `Order Status` with `Sales` and `Profit`.
+   - Found that certain categories had higher instances of late delivery risk.
+
+4. **Time Series Analysis**:
+   - Aggregated data by `Order Date` to visualize trends in sales over time.
+   - Detected seasonal patterns and anomalies in sales.
+
+---
+
+### **Modeling**
+
+#### **Statsmodels**
+1. **OLS Regression for Profit and Sales Prediction**:
+   - Developed models to predict `Order Profit Per Order` and `Sales`.
+   - Key Metrics:
+     - R-squared values were evaluated to determine model fit.
+     - P-values were used to assess feature significance.
+   - Observed multicollinearity in some variables; VIF (Variance Inflation Factor) was calculated to address this.
+
+2. **Interpretation**:
+   - Coefficients of the model highlighted the impact of variables like `Order Item Discount` and `Product Price` on `Profit`.
+
+---
+
+#### **Scikit-learn**
+1. **Logistic Regression for Late Delivery Risk**:
+   - Target variable: `Late_delivery_risk`.
+   - Steps:
+     - Split data into train-test sets using `train_test_split`.
+     - Scaled features with `StandardScaler`.
+   - Metrics:
+     - Confusion matrix, accuracy score, precision, recall, and F1-score were evaluated.
+     - ROC curve was plotted to assess model performance.
+
+2. **Random Forest for Sales Prediction**:
+   - Performed feature importance analysis to identify critical predictors of sales.
+   - Tuned hyperparameters using grid search.
+
+3. **Comparative Analysis**:
+   - Logistic Regression performed better in predicting late delivery risk compared to other models in terms of interpretability.
+   - Random Forest outperformed OLS regression in predicting sales due to its ability to capture non-linear relationships.
+
+---
+
 
