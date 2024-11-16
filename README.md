@@ -314,7 +314,7 @@ The high R² value demonstrates that the model fits the data well, while the MSE
 
 # Logistic Regression Findings for Predicting Late Delivery Risk
 
-### **MODEL 1 - lOGISTIC REGRESSION**
+### **MODEL 1 - LOGISTIC REGRESSION**
 
 ### **Model Overview**
 We developed a **Logistic Regression** model to predict whether a delivery would be late (`Late_delivery_risk`) using the following features:
