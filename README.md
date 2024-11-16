@@ -1,11 +1,6 @@
 # Supply-Chain-Analysis
 
 
-The uploaded Jupyter Notebook contains detailed code and markdown cells related to data cleaning, exploratory data analysis (EDA), and model development. I will analyze these sections and provide a comprehensive summary. Let's begin with the data cleaning steps.
-
-The uploaded notebook contains detailed sections on **data cleaning**, **exploratory data analysis (EDA)**, and **modeling** using both `statsmodels` and `scikit-learn`. Below is the detailed analysis of these parts:
-
----
 
 ### **Data Cleaning**
 
