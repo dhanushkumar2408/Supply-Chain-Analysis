@@ -47,6 +47,9 @@ The data cleaning process was an essential step in preparing the dataset for ana
 
    ![Screenshot 2024-11-16 125638](https://github.com/user-attachments/assets/d7f17bc8-51cc-4615-be51-27de71bab343)
 
+  
+![Screenshot 2024-11-16 140639](https://github.com/user-attachments/assets/dce10b16-e9d1-4a95-9a0c-cc535f7c0db3)
+
 
 ### **2. Positive & Negative Order Profits by Department**
    
@@ -56,6 +59,9 @@ The data cleaning process was an essential step in preparing the dataset for ana
 
 - The relatively consistent ratio across all departments suggests this might be a systemic pattern rather than being specific to any particular product category or department.
 ![Screenshot 2024-11-16 125750](https://github.com/user-attachments/assets/aeca1a28-ef10-4213-b8fa-73e51d39d06d)
+
+![Screenshot 2024-11-16 140722](https://github.com/user-attachments/assets/5ecaf1df-bf0e-468d-8663-54ae85766336)
+
 
 
 ### **3. Statistical Summary of "Order Profit Per Order"**
@@ -67,9 +73,9 @@ The data cleaning process was an essential step in preparing the dataset for ana
 - **Maximum Value**: $911.80 (highest profit recorded)  
 - **Median (50th Percentile)**: $31.52 (half of the orders have profits below this amount)  
 - **Interquartile Range (IQR)**:
-  - **25th Percentile (Q1)**: $7.00  
+  - **25th Percentile (Q1)**: $7.00
   - **75th Percentile (Q3)**: $64.80
- ![Screenshot 2024-11-16 125826](https://github.com/user-attachments/assets/063902e5-712c-4aa0-9d46-3bdd5e1ca640)
+  ![Screenshot 2024-11-16 125826](https://github.com/user-attachments/assets/063902e5-712c-4aa0-9d46-3bdd5e1ca640)
 
 
 ### **4. Distribution of Discount Rates**
@@ -77,29 +83,39 @@ The data cleaning process was an essential step in preparing the dataset for ana
   
 ![Screenshot 2024-11-16 130203](https://github.com/user-attachments/assets/adb496f9-7400-483d-aceb-9ac5f90e8237)
 
-### **4. Average Profit by Discount Rate**
+![Screenshot 2024-11-16 140756](https://github.com/user-attachments/assets/88fd26fa-cd18-4084-b40b-add3e326f850)
+
+### **5. Average Profit by Discount Rate**
 Higher discounts (above 15%) lead to reduced average profit, which indicates that larger discounts may negatively impact profitability. Careful consideration is needed when offering high discounts.
 
 ![Screenshot 2024-11-16 130240](https://github.com/user-attachments/assets/f27352bc-04bf-45ed-bfcd-9a631e89d3dd)
+![Screenshot 2024-11-16 140847](https://github.com/user-attachments/assets/48750177-9348-4421-962d-65543208cd45)
 
-### **5. Heatmap of Correlation Matrix**
+### **6. Heatmap of Correlation Matrix**
 Discount rates have a negative correlation with profit, meaning higher discounts tend to reduce profitability. On the other hand, higher product prices and larger quantities positively affect sales and profit.
 
 
 ![Screenshot 2024-11-16 130306](https://github.com/user-attachments/assets/ac4a0f2a-7344-4e0d-8a4d-173b9955e6f6)
 
-### **6. Largest Market by Order Count**
+![Screenshot 2024-11-16 140931](https://github.com/user-attachments/assets/582f2d94-5a77-430b-b3a4-c7411fd933a2)
+
+
+### **7. Largest Market by Order Count**
 Latin America have biggest market ie number of orders are more
 ![Screenshot 2024-11-16 130334](https://github.com/user-attachments/assets/94b6ce10-a24b-4bd7-9e53-3426b3f68327)
 
 
-### **7.Average Sales & Profit by Departmment**
+### **8.Average Sales & Profit by Departmment**
    The two barplot shows Technology Department recorded high number of average sales , whereas Footwear recorded high average Total profit.
 
 ![Screenshot 2024-11-16 130409](https://github.com/user-attachments/assets/f60ce64c-58b4-4794-8371-86ebab1ab404)
 
+![Screenshot 2024-11-16 141013](https://github.com/user-attachments/assets/b7e8144e-7ac1-4cba-aaf7-01a11e131905)
+![Screenshot 2024-11-16 141023](https://github.com/user-attachments/assets/f1c6dc8e-ccde-4b8e-a6b4-e8e1b631cfc5)
 
-### **8.Shipping Time Analysis**
+
+
+### **9.Shipping Time Analysis**
 
 ### **Days for Shipping (Real) (Blue Box)**
 
@@ -138,11 +154,63 @@ Latin America have biggest market ie number of orders are more
 
 ![Screenshot 2024-11-16 130458](https://github.com/user-attachments/assets/fb38b47d-94bd-4ae2-8f88-6c70dae68af4)
 
---- 
+### **10.Customer Segment Distribution**
+The Customer Segment Distribution shows that the "Consumer" segment has the highest number of customers, followed by "Corporate" and then "Home Office". This suggests that the majority of the customer base is individuals, while businesses and home offices make up smaller portions.
 
-Let me know if you'd like more details or additional sections written in Markdown!
+![Screenshot 2024-11-16 134611](https://github.com/user-attachments/assets/cc3d2622-1635-4f3c-8c7f-3eb2b378084e)
+
+### **11.Monthly Sales Trend Over the Years**
+The line plot shows the monthly sales trend from 2015 to 2018. Sales remained relatively stable across the first 9 months for all years, peaking around August. However, in 2018, there was a significant drop in sales in the last quarter (October to December), suggesting a potential issue or change in market dynamics during that period.
+
+![Screenshot 2024-11-16 134742](https://github.com/user-attachments/assets/d5a03596-4681-45ee-ba06-f9b9d97f68c9)
+
+### **12.Product Popularity by Category**
+The Product Popularity by Category chart reveals that "Cleats" is the top-selling category, followed by "Women's Apparel" and "Indoor/Outdoor Games". This suggests that sports equipment, particularly footwear, is driving sales, while other categories, such as "Electronics" and "Camping & Hiking", have lower demand
+
+![Screenshot 2024-11-16 134924](https://github.com/user-attachments/assets/26f5ce94-7f12-4ca2-8b3e-4013243fa7b6)
+
+![Screenshot 2024-11-16 141231](https://github.com/user-attachments/assets/5cc8c150-7440-48ae-b148-6e104bbe8577)
+
+
+### **13.Product vs Sales**
+Plot shows a general trend of increasing sales with higher product prices. However, there are also some outliers with high prices and low sales, suggesting that price alone may not be the sole determinant of sales performance.
+![Screenshot 2024-11-16 135107](https://github.com/user-attachments/assets/c0fde63c-a8e2-47be-9d9c-ff520deadd0e)
+
+
+### **14.Total Sales & Profit by Market**
+- Europe and LATAM have the highest sales values, followed by Pacific Asia.
+- Africa and USCA have the lowest total sales and profits, indicating smaller market size or 
+  demand.
+- Total Profit Per Order is consistently lower than total sales in all regions, with Europe and LATAM showing the largest profit per order gaps.
+![Screenshot 2024-11-16 135238](https://github.com/user-attachments/assets/ca27c310-10d5-4ebf-a044-760b29ff615d)
+
+### **15.Pair Plot of Shipping Days, Sales, and Profit**
+- There is no clear correlation between "Days for shipping (real)" and "Sales" or "Profit."
+
+- A noticeable cluster shows most data points have low shipping days and low sales.
+    
+- High negative profit seems to be associated with low sales.
+
+
+![Screenshot 2024-11-16 135638](https://github.com/user-attachments/assets/1296887a-78c2-485b-a541-47309fe27a95)
+
+### **16.Average Profit by Discount Rate**
+
+- Discounts between 4-6% lead to the highest average profits during holidays.
+
+- Extremely low discount rates (0% or near 0%) result in negative profit, indicating discounts 
+  are necessary for profitability.
+
+- Discounts above 15% yield diminishing returns, with profits decreasing.
+
+![Screenshot 2024-11-16 140418](https://github.com/user-attachments/assets/47dfe172-82a7-46e2-991c-ee3219ae3ee1)
+
+
+![Screenshot 2024-11-16 141359](https://github.com/user-attachments/assets/3fb93e17-dfe5-448b-a108-df6dc244eddb)
+
 
   
+
 
 
 
