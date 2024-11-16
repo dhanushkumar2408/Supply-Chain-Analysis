@@ -209,14 +209,364 @@ Plot shows a general trend of increasing sales with higher product prices. Howev
 ![Screenshot 2024-11-16 141359](https://github.com/user-attachments/assets/3fb93e17-dfe5-448b-a108-df6dc244eddb)
 
 
+
+
+
+# Random Forest Regressor Findings for Predicting Sales
+
+### Model Overview
+We used a **Random Forest Regressor** to identify the importance of various features in predicting sales. The model was trained with the following features:
+- `Order Item Discount Rate`
+- `Product Price`
+- `Order Item Quantity`
+- `Total Profit Per Order`
+
+The target variable (`y`) was `Sales`.
+![Screenshot 2024-11-16 191822](https://github.com/user-attachments/assets/ac6af898-9d25-464c-8cf4-c8e364ebb5af)
+
+
+
+### **Feature Importance Analysis**
+
+Using the trained Random Forest model, the importance of each feature was calculated, and the results are summarized below:
+
+#### **1. Product Price**
+- **Importance Score**: Close to **0.8**.
+- **Insights**: This feature is the most critical factor for predicting sales. It highlights that the price of a product has a substantial impact on the sales volume or revenue.
+
+#### **2. Order Item Quantity**
+- **Importance Score**: Around **0.2**.
+- **Insights**: The quantity of items ordered is the second most significant feature. While it contributes to sales predictions, its influence is notably less than that of the product price.
+
+#### **3. Order Item Discount Rate**
+- **Importance Score**: Relatively low.
+- **Insights**: Discounts on items have a limited impact on predicting sales in this dataset. Although discounts may affect consumer behavior in some contexts, their predictive power here is minimal.
+
+#### **4. Total Profit Per Order**
+- **Importance Score**: Almost negligible.
+- **Insights**: Profit margins seem to have little to no influence on predicting sales. This suggests that the sales volume is not directly tied to profitability for individual orders in this dataset.
+
+
+
+### **Visual Representation**
+
+Below is a bar plot showcasing the feature importance:
+
+
+![Screenshot 2024-11-16 183740](https://github.com/user-attachments/assets/e6d85416-358c-4f2e-9201-22bd655bd24b)
+
+
+### **Key Takeaways**
+- **Product Price** is the dominant driver of sales predictions.
+- **Order Item Quantity** also plays a role, but to a lesser extent.
+- **Order Item Discount Rate** and **Total Profit Per Order** have minimal influence on the model, indicating they may not be critical factors for predicting sales in this context.
+
+### **Recommendations**
+- Focus on optimizing product pricing strategies, as they have the most significant impact on sales.
+- Consider analyzing the role of discounts and profits further, especially in cases where these features might affect specific customer segments or categories.
+
+---
+# Multiple Linear Regression Findings for Predicting Sales
+
+### **Model Overview**
+We developed a **Multiple Linear Regression** model to predict `Sales` using the following features:
+- `Days for shipping (real)`
+- `Days for shipment (scheduled)`
+- `Product Price`
+- `Order Item Quantity`
+![Screenshot 2024-11-16 192413](https://github.com/user-attachments/assets/c02eac9b-81e5-4169-aaf8-00779ad5269c)
+
+
+The model's performance was evaluated on a test dataset using **Mean Squared Error (MSE)** and **R-squared (R²)** metrics.
+
+
+### **Performance Metrics**
+
+#### **1. Mean Squared Error (MSE): 1312.08**
+- **Definition**: MSE measures the average squared difference between actual values and predicted values.
+- **Interpretation**:  
+  - An MSE of **1312.08** indicates the average squared deviation between the predicted sales and the actual sales is 1312.08 units.  
+  - While this value suggests how far off predictions are on average, its scale depends on the target variable, so it is often challenging to interpret MSE in isolation.  
+  - A lower MSE is desirable, as it signifies better prediction accuracy.
+
+#### **2. R-squared (R²): 0.924**
+- **Definition**: R² represents the proportion of variance in the dependent variable (`Sales`) explained by the independent variables.
+- **Interpretation**:  
+  - An R² of **0.924** means that **92.4%** of the variance in `Sales` is explained by the predictors (`Days for shipping (real)`, `Days for shipment (scheduled)`, `Product Price`, and `Order Item Quantity`).  
+  - This is an excellent fit, as it indicates the model explains most of the variability in the sales data.  
+  - The closer R² is to 1, the better the model explains the variability in the target variable.
+ 
+ 
+### **Insights**
+- **High R²** suggests the linear model captures a significant portion of the relationship between the features and `Sales`. 
+- However, the **MSE** indicates there is still room to improve the model's predictive accuracy, especially when dealing with large variations in sales values.
+
+
+### **Key Recommendations**
+- **Feature Engineering**: Explore additional predictors (e.g., seasonality, region, or customer-specific factors) that might further improve predictions.
+- **Residual Analysis**: Analyze residuals to check for patterns, outliers, or assumptions violations, such as non-linearity or heteroscedasticity.
+- **Model Comparison**: Compare this linear regression model with other algorithms (e.g., Random Forest, Gradient Boosting) to assess if non-linear models perform better on this dataset.
+
+### **Conclusion**
+The high R² value demonstrates that the model fits the data well, while the MSE suggests prediction errors could be optimized further. This linear regression provides a strong baseline for sales prediction.
+
+---
+
+# Logistic Regression Findings for Predicting Late Delivery Risk
+
+### **MODEL 1 - lOGISTIC REGRESSION**
+
+### **Model Overview**
+We developed a **Logistic Regression** model to predict whether a delivery would be late (`Late_delivery_risk`) using the following features:
+- `Days for shipping (real)`
+- `Days for shipment (scheduled)`
+- `Sales per customer`
+
+
+The model's performance was evaluated on a test dataset using accuracy, confusion matrix, and classification metrics.
+![Screenshot 2024-11-16 192006](https://github.com/user-attachments/assets/a770cd99-edac-426b-9de5-e8a68674ce64)
+
+
+### **Performance Metrics**
+
+#### **1. Accuracy: 97.5%**
+- **Definition**: Accuracy measures the proportion of correctly classified instances among the total instances.
+- **Interpretation**:  
+  - An accuracy of **97.5%** indicates the model correctly predicted the delivery status (on-time or late) for 97.5% of the test data.  
+  - This high accuracy suggests the model performs well in predicting late delivery risk.
+
+#### **2. Confusion Matrix**:
+|                  | **Predicted: No Late** | **Predicted: Late** |
+|------------------|-------------------------|----------------------|
+| **Actual: No Late** | 15,399 (True Negatives) | 908 (False Positives)  |
+| **Actual: Late**    | 0 (False Negatives)      | 19,797 (True Positives) |
+
+- **True Negatives (15,399)**: Correctly predicted on-time deliveries.  
+- **False Positives (908)**: On-time deliveries incorrectly predicted as late.  
+- **True Positives (19,797)**: Correctly predicted late deliveries.  
+- **False Negatives (0)**: No late deliveries were missed.  
+
+
+### **Classification Metrics**
+
+| Metric        | On-Time Delivery | Late Delivery |
+|---------------|------------------|---------------|
+| **Precision** | 96%              | 98%           |
+| **Recall**    | 100%             | 96%           |
+| **F1-Score**  | 97%              | 97%           |
+
+#### **Key Insights**:
+- **Precision**: Out of all predicted late deliveries, **96%** were correct. This reflects how often the model is accurate when predicting a late delivery.  
+- **Recall**: The model identified **100%** of actual late deliveries, meaning it detected all instances of late deliveries (no false negatives).  
+- **F1-Score**: The F1-score for both classes is high (97%), indicating a balance between precision and recall for both on-time and late deliveries.
+
+
+### **Heatmap of Confusion Matrix**
+A heatmap visualization of the confusion matrix shows the distribution of predictions and actual values:
+- **True Negatives (15,399)** and **True Positives (19,797)** dominate the matrix, highlighting the model's accuracy.
+- The small number of **False Positives (908)** indicates occasional overestimation of late deliveries.
   
+![Screenshot 2024-11-16 184531](https://github.com/user-attachments/assets/0705a232-ab33-4ceb-8042-ba3cc5038a8f)
+
+### **Imbalance Handling**
+Despite a potential class imbalance (more late deliveries than on-time), the model performs exceptionally well:
+- It maintains high precision and recall for both classes.
+- The model's ability to handle imbalance is evidenced by its high F1-scores (97% for both classes).
 
 
+### **Recommendations**
+- **Feature Expansion**: Consider including additional predictors (e.g., region, shipping mode, or seasonality) to improve performance further.
+- **Threshold Tuning**: Experiment with adjusting the logistic regression decision threshold to balance precision and recall better if priorities shift (e.g., fewer false positives or higher sensitivity to late deliveries).
+- **Comparison**: Evaluate other classification models (e.g., Random Forest, Gradient Boosting) for potentially better performance.
 
-
-
+### **Conclusion**
+The logistic regression model demonstrates excellent predictive performance, with high accuracy, precision, recall, and F1-scores. It effectively identifies late deliveries with no false negatives, making it reliable for risk assessment.
 
 
 ---
+# Random Forest Findings for Predicting Late Delivery Risk
+
+### **MODEL-2 RANDOM FOREST**
+
+### **Model Overview**
+We employed a **Random Forest Classifier** to predict whether a delivery would be late (`Late_delivery_risk`) using the following features:
+- `Days for shipping (real)`
+- `Days for shipment (scheduled)`
+- `Sales per customer`
+
+![Screenshot 2024-11-16 192050](https://github.com/user-attachments/assets/45db6f9b-39f5-4209-b0a4-b864ab34e8e3)
+
+
+The model's performance was evaluated on a test dataset using accuracy, confusion matrix, and classification metrics.
+
+
+### **Performance Metrics**
+
+#### **1. Accuracy: 97.3%**
+- **Definition**: Accuracy measures the proportion of correctly classified instances among the total instances.
+- **Interpretation**:  
+  - An accuracy of **97.3%** indicates the model correctly predicted the delivery status (on-time or late) for 97.3% of the test data.  
+  - This high accuracy demonstrates the model's ability to handle this classification task effectively.
+
+
+#### **2. Confusion Matrix**
+|                  | **Predicted: No Late** | **Predicted: Late** |
+|------------------|-------------------------|----------------------|
+| **Actual: No Late** | 15,405 (True Negatives) | 902 (False Positives)  |
+| **Actual: Late**    | 73 (False Negatives)      | 19,724 (True Positives) |
+
+- **True Negatives (15,405)**: Correctly predicted on-time deliveries.  
+- **False Positives (902)**: On-time deliveries incorrectly predicted as late.  
+- **True Positives (19,724)**: Correctly predicted late deliveries.  
+- **False Negatives (73)**: Late deliveries missed by the model.  
+
+
+### **Classification Metrics**
+
+| Metric        | On-Time Delivery | Late Delivery |
+|---------------|------------------|---------------|
+| **Precision** | 96%              | 98%           |
+| **Recall**    | 99%              | 96%           |
+| **F1-Score**  | 97%              | 97%           |
+
+#### **Key Insights**:
+- **Precision**: Out of all predicted late deliveries, **96%** were correct, indicating the model has good precision in identifying late deliveries.  
+- **Recall**: The model successfully identified **96%** of actual late deliveries, missing only 73 instances.  
+- **F1-Score**: Balanced F1-scores (97% for both classes) reflect the model's robustness in managing class imbalance.
+
+
+### **Confusion Matrix Heatmap**
+A heatmap visualization of the confusion matrix shows:
+- High counts of **True Negatives (15,405)** and **True Positives (19,724)** dominate the matrix.
+- **False Positives (902)** and **False Negatives (73)** are minimal, highlighting the model's effectiveness.
+
+![Screenshot 2024-11-16 190734](https://github.com/user-attachments/assets/b5b33875-2e82-419f-9f89-91262f78e278)
+
+
+### **Imbalance Handling**
+- The Random Forest model handles class imbalance well, maintaining high precision, recall, and F1-scores for both classes.  
+- It effectively predicts both late and on-time deliveries with minimal errors.
+
+
+### **Comparison to Logistic Regression**
+- Both Logistic Regression and Random Forest achieved similar high accuracy, but **Random Forest offers slightly better robustness** in feature importance and adaptability.
+- Random Forest's performance can be further optimized with hyperparameter tuning (e.g., adjusting the number of trees, depth, or sampling strategy).
+
+
+### **Recommendations**
+- **Feature Exploration**: Incorporate additional features (e.g., customer location, shipping mode, or order region) to enhance predictive power.
+- **Hyperparameter Tuning**: Experiment with `n_estimators`, `max_depth`, and `min_samples_split` to potentially improve the model's performance.
+- **Comparison with Other Models**: Evaluate Gradient Boosting or XGBoost for further insights into model efficiency.
+
+### **Conclusion**
+The Random Forest model demonstrates excellent predictive performance, achieving an accuracy of **97.3%**. Its high precision, recall, and F1-scores indicate it is highly reliable for predicting late delivery risks.
+
+ ---
+ # Model Comparison: Logistic Regression vs. Random Forest for Late Delivery Risk Prediction
+
+
+### **Overview**
+
+We evaluated two models for predicting late delivery risks:
+1. **Model 1**: Logistic Regression
+2. **Model 2**: Random Forest Classifier
+
+
+### **Performance Metrics Comparison**
+
+| Metric            | **Model 1 (Logistic Regression)** | **Model 2 (Random Forest)** |
+|-------------------|-----------------------------------|----------------------------|
+| **Accuracy**      | **97.5%**                        | 97.3%                     |
+| **Precision**     | 96%                              | 96%                       |
+| **Recall**        | **100%**                         | 96%                       |
+| **F1-Score**      | 0.98                             | 0.98                      |
+| **True Positives**| **19,797**                       | 19,724                    |
+| **False Negatives**| **0**                           | 73                        |
+
+
+### **Key Observations**
+
+1. **Accuracy**:  
+   - Model 1 has a slightly higher accuracy (**97.5%**) than Model 2 (**97.3%**).
+
+2. **Recall**:  
+   - **Model 1 (Logistic Regression)** achieved a perfect recall (100%) for late deliveries, meaning it identified all true late deliveries without any false negatives.  
+   - **Model 2 (Random Forest)** missed **73 late deliveries**.
+
+3. **Precision and F1-Score**:  
+   - Both models have the same **precision (96%)** and **F1-score (0.98)**, indicating similar performance in handling class imbalance.
+
+4. **Overall Performance**:  
+   - While both models are strong performers, **Model 1's flawless recall makes it more suitable for critical applications where missing late deliveries has severe consequences**.
+
+
+### **Conclusion**
+
+**Model 1 (Logistic Regression)** is the better choice for predicting late delivery risks:
+- It has a higher accuracy.
+- Achieves perfect recall, ensuring no late deliveries are missed.
+- Provides similar precision and F1-scores compared to Model 2.
+
+**Recommendation**: Use Model 1 if identifying all late deliveries is crucial. Consider Model 2 if interpretability or robustness to new features is needed.
+
+---
+
+# Analysis of Total Profit Per Order using OLS Regression
+
+
+
+### **Findings**
+
+#### **Model Summary**
+The Ordinary Least Squares (OLS) regression model evaluates the relationship between **Total Profit Per Order** and three independent variables:
+1. **Order Item Discount Rate**
+2. **Product Price**
+3. **Order Item Quantity**
+![Screenshot 2024-11-16 192135](https://github.com/user-attachments/assets/47338995-396e-492e-922c-bb1259cd220f)
+
+
+### **Key Metrics**
+- **R-squared**: **26%**
+  - This indicates that 26% of the variation in 'Total Profit Per Order' is explained by the independent variables in the model. While this is relatively low, it suggests that other factors not included in the model also influence total profit.
+
+
+### **Independent Variables and Coefficients**
+
+1. **Order Item Discount Rate**:
+   - **Coefficient**: **-65.2753**
+   - **Interpretation**: For every unit increase in the discount rate (e.g., 100% increase), the **Total Profit Per Order decreases by 65.2753 units** on average, holding other variables constant.
+   - **Statistical Significance**: The coefficient is statistically significant (**p-value < 0.05**), meaning the relationship is unlikely due to chance.
+
+2. **Product Price**:
+   - **Coefficient**: **0.1393**
+   - **Interpretation**: For every 1-unit increase in product price, the **Total Profit Per Order increases by 0.1393 units** on average, holding other variables constant.
+   - **Statistical Significance**: The coefficient is statistically significant (**p-value < 0.05**), suggesting a strong positive correlation.
+
+3. **Order Item Quantity**:
+   - **Coefficient**: **34.7414**
+   - **Interpretation**: For every additional item sold, the **Total Profit Per Order increases by 34.7414 units** on average, holding other variables constant.
+   - **Statistical Significance**: The coefficient is statistically significant (**p-value < 0.05**), demonstrating a strong positive correlation.
+
+
+### **Conclusion**
+
+- **Order Item Discount Rate** has a significant **negative impact** on Total Profit Per Order. Strategies to minimize excessive discounts could help improve profitability.
+- **Product Price** and **Order Item Quantity** both have a significant **positive impact** on Total Profit Per Order. This highlights the importance of pricing strategy and increasing sales volume to drive profitability.
+- The relatively low **R-squared (26%)** suggests that other factors not included in this model play a significant role in determining total profit.
+
+
+### **Recommendations**
+1. **Review discounting policies** to balance competitive pricing with profitability.
+2. **Optimize product pricing** to maximize profit margins while maintaining sales volume.
+3. Focus on **increasing order quantities** through promotional bundles or volume discounts.
+
+---
+
+
+
+
+
+
+
 
 
