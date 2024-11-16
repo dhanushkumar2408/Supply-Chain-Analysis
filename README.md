@@ -10,6 +10,7 @@ The data cleaning process was an essential step in preparing the dataset for ana
    - Removed columns that were irrelevant to the analysis or redundant. This reduced noise and improved computational efficiency.
    - Example: Columns like `Customer Password` or `Product Image` were dropped as they didn’t contribute to the analysis objectives.
 
+
 ### **2. Renaming Columns**
    - Standardized column names for better readability and uniformity.
    - Example:
@@ -44,6 +45,9 @@ The data cleaning process was an essential step in preparing the dataset for ana
    number of orders with negative profits. This suggests that the majority of orders are 
    generating profits for the business, while a smaller portion is resulting in losses.
 
+   ![Screenshot 2024-11-16 125638](https://github.com/user-attachments/assets/d7f17bc8-51cc-4615-be51-27de71bab343)
+
+
 ### **2. Positive & Negative Order Profits by Department**
    
 - All departments have a higher proportion of positive order profits (green) compared to negative order profits (red), with the split being roughly 80% positive to 20% negative across departments.
@@ -51,6 +55,7 @@ The data cleaning process was an essential step in preparing the dataset for ana
 - The Health and Beauty Outdoors department appears to have the highest proportion of negative order profits, while departments like Apparel and Book Shop have slightly lower proportions of negative profits.
 
 - The relatively consistent ratio across all departments suggests this might be a systemic pattern rather than being specific to any particular product category or department.
+![Screenshot 2024-11-16 125750](https://github.com/user-attachments/assets/aeca1a28-ef10-4213-b8fa-73e51d39d06d)
 
 
 ### **3. Statistical Summary of "Order Profit Per Order"**
@@ -63,22 +68,35 @@ The data cleaning process was an essential step in preparing the dataset for ana
 - **Median (50th Percentile)**: $31.52 (half of the orders have profits below this amount)  
 - **Interquartile Range (IQR)**:
   - **25th Percentile (Q1)**: $7.00  
-  - **75th Percentile (Q3)**: $64.80  
+  - **75th Percentile (Q3)**: $64.80
+ ![Screenshot 2024-11-16 125826](https://github.com/user-attachments/assets/063902e5-712c-4aa0-9d46-3bdd5e1ca640)
+
 
 ### **4. Distribution of Discount Rates**
   The histogram shows that most items in the dataset receive discount rates of 0%, 5%, and 15%, indicating these are the most commonly used discount levels. Higher discount rates like 20% and 25% are applied less frequently.
+  
+![Screenshot 2024-11-16 130203](https://github.com/user-attachments/assets/adb496f9-7400-483d-aceb-9ac5f90e8237)
 
 ### **4. Average Profit by Discount Rate**
 Higher discounts (above 15%) lead to reduced average profit, which indicates that larger discounts may negatively impact profitability. Careful consideration is needed when offering high discounts.
 
+![Screenshot 2024-11-16 130240](https://github.com/user-attachments/assets/f27352bc-04bf-45ed-bfcd-9a631e89d3dd)
+
 ### **5. Heatmap of Correlation Matrix**
 Discount rates have a negative correlation with profit, meaning higher discounts tend to reduce profitability. On the other hand, higher product prices and larger quantities positively affect sales and profit.
 
+
+![Screenshot 2024-11-16 130306](https://github.com/user-attachments/assets/ac4a0f2a-7344-4e0d-8a4d-173b9955e6f6)
+
 ### **6. Largest Market by Order Count**
 Latin America have biggest market ie number of orders are more
+![Screenshot 2024-11-16 130334](https://github.com/user-attachments/assets/94b6ce10-a24b-4bd7-9e53-3426b3f68327)
+
 
 ### **7.Average Sales & Profit by Departmment**
    The two barplot shows Technology Department recorded high number of average sales , whereas Footwear recorded high average Total profit.
+
+![Screenshot 2024-11-16 130409](https://github.com/user-attachments/assets/f60ce64c-58b4-4794-8371-86ebab1ab404)
 
 
 ### **8.Shipping Time Analysis**
@@ -118,6 +136,7 @@ Latin America have biggest market ie number of orders are more
    - This variability suggests potential **delays** in meeting scheduled shipping expectations.  
 
 
+![Screenshot 2024-11-16 130458](https://github.com/user-attachments/assets/fb38b47d-94bd-4ae2-8f88-6c70dae68af4)
 
 --- 
 
